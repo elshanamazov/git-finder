@@ -1,19 +1,24 @@
 import { useRepositoryStore } from '@/Features/repositoryDetails/model/store/useRepositoryStore';
-import { useSearchStore } from '@/Features/repositorySearch/model/store/useSearchStore';
+import { PAGE_SIZE } from '@/shared/const/common';
 import { Card } from '@/widgets/Card/ui/Card';
 import { Pagination } from '@/widgets/Pagination';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import cls from './RepoList.module.scss';
-
-const PageSize = 10;
 
 export const RepoList = () => {
 	const { repositories } = useRepositoryStore();
-	const { currentPage, setCurrentPage } = useSearchStore();
+	const [currentPage, setCurrentPage] = useState(() => {
+		const savedPage = localStorage.getItem('currentPage');
+		return savedPage ? Number(savedPage) : 1;
+	});
+
+	useEffect(() => {
+		localStorage.setItem('currentPage', currentPage.toString());
+	}, [currentPage]);
 
 	const currentTableData = useMemo(() => {
-		const firstPageIndex = (currentPage - 1) * PageSize;
-		const lastPageIndex = firstPageIndex + PageSize;
+		const firstPageIndex = (currentPage - 1) * PAGE_SIZE;
+		const lastPageIndex = firstPageIndex + PAGE_SIZE;
 		return repositories.slice(firstPageIndex, lastPageIndex);
 	}, [currentPage, repositories]);
 
@@ -35,7 +40,7 @@ export const RepoList = () => {
 				<Pagination
 					currentPage={currentPage}
 					totalCount={repositories.length}
-					pageSize={PageSize}
+					pageSize={PAGE_SIZE}
 					onPageChange={setCurrentPage}
 				/>
 			</div>

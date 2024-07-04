@@ -32,10 +32,8 @@ export const fetchRepositoryDetails = async (owner: string, name: string): Promi
 			query: REPOSITORY_DETAILS_QUERY,
 			variables: { owner, name },
 		});
-		console.log('Received data:', data);
 		return data.repository;
 	} catch (error) {
-		console.error('Error loading repository details:', error);
 		throw new Error('Error loading repository details.');
 	}
 };

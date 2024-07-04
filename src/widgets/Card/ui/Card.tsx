@@ -1,24 +1,18 @@
+import { REPO_PAGE_ROUTE } from '@/shared/const/common';
+import { formatDate } from '@/shared/helper/formatDate';
 import { Link, generatePath } from 'react-router-dom';
 import cls from './Card.module.scss';
-
-const options = {
-	year: 'numeric',
-	month: 'long',
-	day: 'numeric',
-} as Intl.DateTimeFormatOptions;
 
 type RepoProps = {
 	id: string;
 	name: string;
 	html_url?: string;
 	pushed_at: string;
-	stargazers_count: number;
+	stargazers_count: number | undefined;
 };
 
-export const REPO_PAGE_ROUTE = '/repo-info/:owner/:name';
-
 export const Card = ({ name, html_url, pushed_at, stargazers_count }: RepoProps) => {
-	const formattedDate = new Date(pushed_at).toLocaleDateString('en-US', options);
+	const formattedDate = formatDate(pushed_at);
 	const newName = name.length > 15 ? name.slice(0, 15) + '...' : name;
 
 	const usernameRegex = /https:\/\/github\.com\/([^/]+)/;

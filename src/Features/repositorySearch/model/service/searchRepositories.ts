@@ -1,6 +1,7 @@
 import { Repository } from '@/Features/repositoryDetails/model/types/repository';
 import client from '@/shared/api/apollo';
 import { gql } from '@apollo/client';
+import { SearchRepositoriesData } from '../types/searchRepositoryData';
 
 const SEARCH_QUERY = gql`
 	query SearchRepositories($name: String!) {
@@ -22,25 +23,13 @@ const SEARCH_QUERY = gql`
 	}
 `;
 
-interface SearchRepositoryNode
-	extends Pick<Repository, 'id' | 'name' | 'stargazers' | 'updatedAt' | 'url'> {}
-
-interface SearchRepositoriesData {
-	search: {
-		edges: {
-			node: SearchRepositoryNode;
-		}[];
-	};
-}
-
 export const searchRepositories = async (name: string): Promise<Repository[]> => {
 	try {
-		console.log(`Searching for repositories with name: ${name}`);
 		const { data } = await client.query<SearchRepositoriesData>({
 			query: SEARCH_QUERY,
 			variables: { name },
 		});
-		console.log('Data received:', data);
+
 		return data.search.edges.map((edge) => ({
 			id: edge.node.id,
 			name: edge.node.name,

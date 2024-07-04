@@ -24,15 +24,15 @@ export const RepositorySearch = () => {
 				setLoading(false);
 			} catch (error: unknown) {
 				if (error instanceof Error) {
-					console.error('Failed to fetch repositories:', error);
 					setError('Failed to fetch repositories: ' + error.message);
 				} else {
 					setError('Failed to fetch repositories: An unknown error occurred');
 				}
+			} finally {
 				setLoading(false);
 			}
 		}, 300),
-		[setRepositories],
+		[],
 	);
 
 	useEffect(() => {

@@ -1,13 +1,15 @@
 import { create } from 'zustand';
 
 interface Repository {
-	stargazers: string;
+	stargazers: {
+		totalCount: number;
+	};
 	updatedAt: string;
 	url: string | undefined;
 	id: string;
 	name: string;
-	stars: number;
-	lastCommitDate: string;
+	stars?: number;
+	lastCommitDate?: string;
 }
 
 interface RepositoryState {
