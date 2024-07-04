@@ -1,0 +1,20 @@
+@import 'reset';
+@import 'variables/global';
+
+.app {
+	background: var(--bg-color);
+	min-height: 100vh;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	padding: 10px 30px;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

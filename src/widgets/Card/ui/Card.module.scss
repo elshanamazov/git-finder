@@ -1,0 +1,42 @@
+.repo_card {
+	background-color: var(--light-c);
+	border: 1px solid var(--light-grey-c);
+	padding: 20px;
+	margin-bottom: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.name_repo {
+	color: var(--blue-c);
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 18px;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.description_block {
+	margin-top: 10px;
+
+	p {
+		color: var(--dark-grey-c);
+		font-size: 16px;
+		line-height: 1.5;
+	}
+}
+
+.link {
+	margin-top: 10px;
+
+	a {
+		color: var(--blue-c);
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
