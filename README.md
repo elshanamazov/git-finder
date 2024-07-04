@@ -1,4 +1,4 @@
-# Тестовое gitFinder API - toolKit
+# Тестовое gitFinder API
 
 Запуск проекта: 
 - **npm i**
