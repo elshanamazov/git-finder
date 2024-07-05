@@ -1,4 +1,4 @@
-import { fetchRepositoryDetails } from '@/Features/repositoryDetails/model/service/fetchRepositoriesDetails';
+import { fetchRepositoryDetails } from '@/features/repositoryDetails/model/service/fetchRepositoriesDetails';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Repository } from '../model/types/repository';

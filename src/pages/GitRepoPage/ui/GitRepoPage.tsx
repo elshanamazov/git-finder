@@ -1,4 +1,4 @@
-import { RepositoryDetails } from '@/Features/repositoryDetails';
+import { RepositoryDetails } from '@/features/repositoryDetails';
 import cls from './GitRepoPage.module.scss';
 
 export const GitRepoPage = () => {

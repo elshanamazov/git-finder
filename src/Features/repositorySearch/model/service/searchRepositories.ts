@@ -1,4 +1,4 @@
-import { Repository } from '@/Features/repositoryDetails/model/types/repository';
+import { Repository } from '@/features/repositoryDetails/model/types/repository';
 import client from '@/shared/api/apollo';
 import { gql } from '@apollo/client';
 import { SearchRepositoriesData } from '../types/searchRepositoryData';

@@ -1,4 +1,4 @@
-import { useRepositoryStore } from '@/Features/repositoryDetails/model/store/useRepositoryStore';
+import { useRepositoryStore } from '@/features/repositoryDetails/model/store/useRepositoryStore';
 import { PAGE_SIZE } from '@/shared/const/common';
 import { Card } from '@/widgets/Card/ui/Card';
 import { Pagination } from '@/widgets/Pagination';
