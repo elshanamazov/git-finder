@@ -37,12 +37,14 @@ export const RepoList = () => {
 				))}
 			</div>
 			<div className={cls.pagination}>
-				<Pagination
-					currentPage={currentPage}
-					totalCount={repositories.length}
-					pageSize={PAGE_SIZE}
-					onPageChange={setCurrentPage}
-				/>
+				{repositories.length > 9 && (
+					<Pagination
+						currentPage={currentPage}
+						totalCount={repositories.length}
+						pageSize={PAGE_SIZE}
+						onPageChange={setCurrentPage}
+					/>
+				)}
 			</div>
 		</>
 	);

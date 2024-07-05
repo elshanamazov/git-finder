@@ -1,7 +1,7 @@
 import { DOTS } from '@/shared/const/common';
 import usePagination from '@/shared/lib/hooks/usePagination';
 import classnames from 'classnames';
-import { useCallback, useMemo } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import cls from './Pagination.module.scss';
 
 interface PaginationProps {
@@ -13,7 +13,7 @@ interface PaginationProps {
 	className?: string;
 }
 
-export const Pagination: React.FC<PaginationProps> = ({
+export const Pagination: FC<PaginationProps> = ({
 	onPageChange,
 	totalCount,
 	siblingCount = 1,
