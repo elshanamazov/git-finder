@@ -1,6 +1,6 @@
 import { useRepositoryStore } from '@/features/repositoryDetails/model/store/useRepositoryStore';
 import { PAGE_SIZE } from '@/shared/const/common';
-import { Card } from '@/widgets/Card/ui/Card';
+import { Card } from '@/widgets/Card';
 import { Pagination } from '@/widgets/Pagination';
 import { useEffect, useMemo, useState } from 'react';
 import cls from './RepoList.module.scss';
